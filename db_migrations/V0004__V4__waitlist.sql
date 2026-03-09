@@ -1,0 +1,20 @@
+CREATE TABLE t_p2841448_elite_concierge_land.waitlist (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100),
+  phone VARCHAR(50),
+  country VARCHAR(100),
+  city VARCHAR(100),
+  occupation VARCHAR(200),
+  annual_income VARCHAR(100),
+  about TEXT,
+  why_noir TEXT,
+  referred_by VARCHAR(200),
+  status VARCHAR(20) DEFAULT 'pending',
+  priority INTEGER DEFAULT 0,
+  notes TEXT,
+  reviewed_by INTEGER REFERENCES t_p2841448_elite_concierge_land.users(id),
+  created_at TIMESTAMP DEFAULT NOW(),
+  reviewed_at TIMESTAMP
+);
